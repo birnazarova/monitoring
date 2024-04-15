@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring2
+  project: default
+  source:
+    helm:
+      chart: grafana/grafana
+      version: "7.3.8"
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

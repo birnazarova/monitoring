@@ -1,0 +1,19 @@
+# prometheus-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring2
+  project: default
+  source:
+    helm:
+      chart: prometheus-community/prometheus
+      version: "25.19.1"
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
