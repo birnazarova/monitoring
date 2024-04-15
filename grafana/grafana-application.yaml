@@ -13,6 +13,6 @@ spec:
     chart: grafana
   syncPolicy:
     automated:
-      prune: true
+      selfHeal: true
     syncOptions:
-      - CreateNamespace=true
+      - CreateNamespace=true  
