@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: prometheus
+  namespace: monitoring2
 spec:
   destination:
     server: https://kubernetes.default.svc
@@ -9,8 +10,8 @@ spec:
   project: default
   source:
     repoURL: 'https://prometheus-community.github.io/helm-charts'
-    targetRevision: 25.19.1
-    chart: prometheus
+    targetRevision: 13.7.2
+    chart: kube-prometheus-stack
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
