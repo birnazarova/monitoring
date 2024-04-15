@@ -9,11 +9,9 @@ spec:
     namespace: monitoring2
   project: default
   source:
-    helm:
-      chart: prometheus-community/prometheus
-      version: "25.19.1"
+    repoURL: 'https://prometheus-community.github.io/helm-charts'
+    targetRevision: 25.19.1
+    chart: prometheus
   syncPolicy:
-    automated:
-      prune: true
     syncOptions:
       - CreateNamespace=true

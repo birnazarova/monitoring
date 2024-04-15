@@ -8,9 +8,9 @@ spec:
     namespace: monitoring2
   project: default
   source:
-    helm:
-      chart: grafana/grafana
-      version: "7.3.8"
+    repoURL: 'https://grafana.github.io/helm-charts'
+    targetRevision: 7.3.8
+    chart: grafana
   syncPolicy:
     automated:
       prune: true
